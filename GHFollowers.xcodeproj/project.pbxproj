@@ -16,6 +16,8 @@
 		484540AC2B40AAC400A60118 /* GHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540AB2B40AAC400A60118 /* GHButton.swift */; };
 		484540AE2B40ACD100A60118 /* GHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540AD2B40ACD100A60118 /* GHTextField.swift */; };
 		484540B02B41BADD00A60118 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540AF2B41BADD00A60118 /* FollowerListVC.swift */; };
+		484540B22B43106F00A60118 /* GHTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540B12B43106F00A60118 /* GHTitleLabel.swift */; };
+		484540B42B43126800A60118 /* GHBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540B32B43126800A60118 /* GHBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		484540AB2B40AAC400A60118 /* GHButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHButton.swift; sourceTree = "<group>"; };
 		484540AD2B40ACD100A60118 /* GHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTextField.swift; sourceTree = "<group>"; };
 		484540AF2B41BADD00A60118 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
+		484540B12B43106F00A60118 /* GHTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTitleLabel.swift; sourceTree = "<group>"; };
+		484540B32B43126800A60118 /* GHBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				484540A72B40A32F00A60118 /* SearchVC.swift */,
 				484540AF2B41BADD00A60118 /* FollowerListVC.swift */,
 				484540A92B40A35100A60118 /* FavoritesVC.swift */,
+				484540B12B43106F00A60118 /* GHTitleLabel.swift */,
+				484540B32B43126800A60118 /* GHBodyLabel.swift */,
 				484540AB2B40AAC400A60118 /* GHButton.swift */,
 				484540AD2B40ACD100A60118 /* GHTextField.swift */,
 				4845409B2B408FB200A60118 /* Assets.xcassets */,
@@ -154,6 +160,8 @@
 				484540A82B40A32F00A60118 /* SearchVC.swift in Sources */,
 				484540B02B41BADD00A60118 /* FollowerListVC.swift in Sources */,
 				484540932B408FAC00A60118 /* AppDelegate.swift in Sources */,
+				484540B42B43126800A60118 /* GHBodyLabel.swift in Sources */,
+				484540B22B43106F00A60118 /* GHTitleLabel.swift in Sources */,
 				484540952B408FAC00A60118 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
