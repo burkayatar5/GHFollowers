@@ -15,6 +15,8 @@ class FollowerListVC: UIViewController {
     
     var username: String?
     var followers: [Follower] = []
+    var page: Int = 1
+    var hasMoreFollowers: Bool = true
     
     var collectionView: UICollectionView?
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>?
@@ -23,7 +25,11 @@ class FollowerListVC: UIViewController {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
-        getFollowers()
+        
+        if let username = username {
+            getFollowers(username: username, page: page)
+        }
+        
         configureDataSource()
     }
     
@@ -41,19 +47,29 @@ class FollowerListVC: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         guard let collectionView = collectionView else { return }
         view.addSubview(collectionView)
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: "FollowerCell")
     }
     
     
     
-    private func getFollowers() {
+    private func getFollowers(username: String, page: Int) {
+        showLoadingView()
         if let username = self.username {
-            NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+            NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
                 guard let self = self else { return }
+                self.dismissLoadingView()
                 switch result {
                     case .success(let followers):
-                        self.followers = followers
+                    /*
+                     We get 100 followers per page now.
+                     If the follower count is less then 100 this means there are no more followers on the next page.
+                     So we do not make any unneccesary network call.
+                     TODO: - In an edge case like user has 400 followers we will make 1 more unncessary call. Try to fix it.
+                    */
+                    if followers.count < 100 { self.hasMoreFollowers = false }
+                        self.followers.append(contentsOf: followers)
                         self.updateData()
                     
                     case .failure(let error):
@@ -83,4 +99,25 @@ class FollowerListVC: UIViewController {
         }
     }
 
+}
+
+extension FollowerListVC: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //Content size is total height of scrool view including all the data.
+        //Height of the scrool view is the total height of the screen.
+        //Offset of the Y coordinate is how far you scrool vertically.
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreFollowers else { return }
+            page += 1
+            if let username = username {
+                getFollowers(username: username, page: page)
+            }
+        }
+    }
 }
