@@ -34,7 +34,7 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ///hide navigation bar in viewWillAppear because this method triggers every time view will appear unlike viewDidLoad.
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     /// Dismiss keyboard when user tap anywhere on screen after end editing text field.
