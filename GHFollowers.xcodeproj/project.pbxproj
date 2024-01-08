@@ -27,6 +27,7 @@
 		484540CA2B46CD8A00A60118 /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540C92B46CD8A00A60118 /* FollowerCollectionViewCell.swift */; };
 		484540CC2B46CE0A00A60118 /* GHAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540CB2B46CE0A00A60118 /* GHAvatarImageView.swift */; };
 		484540CE2B484A8C00A60118 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540CD2B484A8B00A60118 /* UIHelper.swift */; };
+		484540D62B4C5DB800A60118 /* GHEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540D52B4C5DB800A60118 /* GHEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		484540C92B46CD8A00A60118 /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
 		484540CB2B46CE0A00A60118 /* GHAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAvatarImageView.swift; sourceTree = "<group>"; };
 		484540CD2B484A8B00A60118 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		484540D52B4C5DB800A60118 /* GHEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +113,13 @@
 		484540BA2B445C2100A60118 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				484540D42B4C5DA300A60118 /* Views */,
+				484540D32B4C5D6700A60118 /* ViewControllers */,
+				484540D22B4C5D3E00A60118 /* Labels */,
+				484540D12B4C5D1700A60118 /* ImageViews */,
+				484540D02B4C5D1200A60118 /* TextFields */,
+				484540CF2B4C5D0D00A60118 /* Buttons */,
 				484540C82B46CD6B00A60118 /* Cells */,
-				484540B12B43106F00A60118 /* GHTitleLabel.swift */,
-				484540B32B43126800A60118 /* GHBodyLabel.swift */,
-				484540B52B4319BA00A60118 /* GHAlertVC.swift */,
-				484540AB2B40AAC400A60118 /* GHButton.swift */,
-				484540AD2B40ACD100A60118 /* GHTextField.swift */,
-				484540CB2B46CE0A00A60118 /* GHAvatarImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -173,6 +175,55 @@
 				484540C92B46CD8A00A60118 /* FollowerCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		484540CF2B4C5D0D00A60118 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				484540AB2B40AAC400A60118 /* GHButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		484540D02B4C5D1200A60118 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				484540AD2B40ACD100A60118 /* GHTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		484540D12B4C5D1700A60118 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				484540CB2B46CE0A00A60118 /* GHAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		484540D22B4C5D3E00A60118 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				484540B12B43106F00A60118 /* GHTitleLabel.swift */,
+				484540B32B43126800A60118 /* GHBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		484540D32B4C5D6700A60118 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				484540B52B4319BA00A60118 /* GHAlertVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		484540D42B4C5DA300A60118 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				484540D52B4C5DB800A60118 /* GHEmptyStateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +313,7 @@
 				484540CC2B46CE0A00A60118 /* GHAvatarImageView.swift in Sources */,
 				484540B42B43126800A60118 /* GHBodyLabel.swift in Sources */,
 				484540B22B43106F00A60118 /* GHTitleLabel.swift in Sources */,
+				484540D62B4C5DB800A60118 /* GHEmptyStateView.swift in Sources */,
 				484540952B408FAC00A60118 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
