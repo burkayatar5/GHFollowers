@@ -10,7 +10,7 @@ import UIKit
 fileprivate var containerView: UIView?
 
 extension UIViewController {
-    
+    //MARK: - AlertView methods
     func presentGHAlertOnMainThread(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
             let alertVC = GHAlertVC(alertTitle: title, message: message, buttonTitle: buttonTitle)
@@ -20,6 +20,7 @@ extension UIViewController {
         }
     }
     
+    //MARK: - LoadingView methods
     func showLoadingView() {
         containerView = UIView(frame: view.bounds)
         guard let containerView = containerView else { return }
@@ -51,4 +52,12 @@ extension UIViewController {
             containerView = nil
         }
     }
+    
+    //MARK: - EmptyStateView methods
+    func showEmptyStateView(with message: String, in view: UIView) {
+        let emptyStateView = GHEmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
+    }
+    
 }
