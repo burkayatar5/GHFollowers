@@ -58,5 +58,45 @@ class NetworkManager {
         task.resume()
     }
     
+    #warning("refactor to make it generic")
+    func getUserInfo(for username: String,
+                      completion: @escaping (Result<User, GHError>) -> Void) {
+        let endpoint = baseURL + "/users/\(username)"
+        
+        guard let url = URL(string: endpoint) else {
+            completion(.failure(.invalidUsername))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            
+            if let _ = error {
+                completion(.failure(.unableToComplete))
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                let user = try jsonDecoder.decode(User.self, from: data)
+                completion(.success(user))
+            } catch {
+                completion(.failure(.invalidData))
+            }
+            
+            
+        }
+        task.resume()
+    }
+    
     
 }
