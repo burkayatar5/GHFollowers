@@ -7,28 +7,42 @@
 
 import UIKit
 
+protocol UserInfoVCDelegate: AnyObject {
+    func didTapGitHubProfile()
+    func didTapGetFollowers()
+}
+
 class UserInfoVC: UIViewController {
 
     let headerView = UIView()
+    let itemViewOne = UIView()
+    let itemViewTwo = UIView()
+    let dateLabel = GHBodyLabel(textAlignment: .center)
+    var itemViews: [UIView] = []
     
     var username: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViewController()
+        layoutUI()
+        getUserInfo(username: username)
+        
+    }
+    
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
-        
-        layoutUI()
-        
+    }
+    
+    private func getUserInfo(username: String?) {
         guard let username = username else { return }
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
             guard let self = self else { return }
             switch result {
                 case .success(let user):
-                    DispatchQueue.main.async {
-                        self.add(childVC: GHUserInfoHeaderVC(user: user), to: self.headerView)
-                    }
+                    DispatchQueue.main.async { self.configureUIElements(with: user)}
 
                 case .failure(let error):
                     self.presentGHAlertOnMainThread(title: "Something went wrong",
@@ -38,15 +52,48 @@ class UserInfoVC: UIViewController {
         }
     }
     
+    private func configureUIElements(with user: User) {
+        let repoItemVC = GHRepoItemVC(user: user)
+        repoItemVC.delegate = self
+        
+        let followerItemVC = GHFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+        
+        self.add(childVC: GHUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
+    }
+    
     private func layoutUI() {
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+        let padding: CGFloat = 20
+        let itemHeight: CGFloat = 140
+        
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
+        
+        for itemView in itemViews {
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            ])
+        }
+        
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180)
+            headerView.heightAnchor.constraint(equalToConstant: 180),
+            
+            itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
@@ -60,4 +107,18 @@ class UserInfoVC: UIViewController {
     @objc func dismissVC() {
         dismiss(animated: true)
     }
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+    func didTapGitHubProfile() {
+        //Show safari view controller
+        
+    }
+    
+    func didTapGetFollowers() {
+        // dismissVC
+        // tell follower list screen the new user
+    }
+    
+    
 }
