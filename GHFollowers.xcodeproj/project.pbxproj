@@ -38,6 +38,7 @@
 		484540E62B5E8D9900A60118 /* GHFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540E52B5E8D9900A60118 /* GHFollowerItemVC.swift */; };
 		484540E92B5E940C00A60118 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540E82B5E940C00A60118 /* Date+Extensions.swift */; };
 		484540EB2B5E941600A60118 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EA2B5E941600A60118 /* String+Extensions.swift */; };
+		484540ED2B5EEFF500A60118 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EC2B5EEFF500A60118 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		484540E52B5E8D9900A60118 /* GHFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowerItemVC.swift; sourceTree = "<group>"; };
 		484540E82B5E940C00A60118 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		484540EA2B5E941600A60118 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		484540EC2B5EEFF500A60118 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				484540C32B46A15800A60118 /* NetworkManager.swift */,
+				484540EC2B5EEFF500A60118 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				484540932B408FAC00A60118 /* AppDelegate.swift in Sources */,
 				484540BF2B44B63700A60118 /* Follower.swift in Sources */,
 				484540B62B4319BA00A60118 /* GHAlertVC.swift in Sources */,
+				484540ED2B5EEFF500A60118 /* PersistenceManager.swift in Sources */,
 				484540C42B46A15800A60118 /* NetworkManager.swift in Sources */,
 				484540CC2B46CE0A00A60118 /* GHAvatarImageView.swift in Sources */,
 				484540B42B43126800A60118 /* GHBodyLabel.swift in Sources */,
