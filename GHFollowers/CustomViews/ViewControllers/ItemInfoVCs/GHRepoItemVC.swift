@@ -22,6 +22,7 @@ class GHRepoItemVC: GHItemInfoVC {
     }
     
     override func actionButtonTapped() {
-        delegate?.didTapGitHubProfile()
+        guard let user = user else { return }
+        delegate?.didTapGitHubProfile(for: user)
     }
 }
