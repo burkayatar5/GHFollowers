@@ -12,7 +12,7 @@
 		4845409C2B408FB200A60118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4845409B2B408FB200A60118 /* Assets.xcassets */; };
 		4845409F2B408FB200A60118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4845409D2B408FB200A60118 /* LaunchScreen.storyboard */; };
 		484540A82B40A32F00A60118 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540A72B40A32F00A60118 /* SearchVC.swift */; };
-		484540AA2B40A35100A60118 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540A92B40A35100A60118 /* FavoritesVC.swift */; };
+		484540AA2B40A35100A60118 /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540A92B40A35100A60118 /* FavoritesListVC.swift */; };
 		484540AC2B40AAC400A60118 /* GHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540AB2B40AAC400A60118 /* GHButton.swift */; };
 		484540AE2B40ACD100A60118 /* GHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540AD2B40ACD100A60118 /* GHTextField.swift */; };
 		484540B02B41BADD00A60118 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540AF2B41BADD00A60118 /* FollowerListVC.swift */; };
@@ -39,6 +39,7 @@
 		484540E92B5E940C00A60118 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540E82B5E940C00A60118 /* Date+Extensions.swift */; };
 		484540EB2B5E941600A60118 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EA2B5E941600A60118 /* String+Extensions.swift */; };
 		484540ED2B5EEFF500A60118 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EC2B5EEFF500A60118 /* PersistenceManager.swift */; };
+		484540EF2B5FD89400A60118 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EE2B5FD89400A60118 /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +51,7 @@
 		484540A02B408FB200A60118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		484540A62B40906D00A60118 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		484540A72B40A32F00A60118 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		484540A92B40A35100A60118 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		484540A92B40A35100A60118 /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		484540AB2B40AAC400A60118 /* GHButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHButton.swift; sourceTree = "<group>"; };
 		484540AD2B40ACD100A60118 /* GHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTextField.swift; sourceTree = "<group>"; };
 		484540AF2B41BADD00A60118 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		484540E82B5E940C00A60118 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		484540EA2B5E941600A60118 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		484540EC2B5EEFF500A60118 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		484540EE2B5FD89400A60118 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +129,7 @@
 			children = (
 				484540A72B40A32F00A60118 /* SearchVC.swift */,
 				484540AF2B41BADD00A60118 /* FollowerListVC.swift */,
-				484540A92B40A35100A60118 /* FavoritesVC.swift */,
+				484540A92B40A35100A60118 /* FavoritesListVC.swift */,
 				484540D72B4DA4BE00A60118 /* UserInfoVC.swift */,
 			);
 			path = Controllers;
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				484540C92B46CD8A00A60118 /* FollowerCollectionViewCell.swift */,
+				484540EE2B5FD89400A60118 /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -342,7 +345,7 @@
 				484540AC2B40AAC400A60118 /* GHButton.swift in Sources */,
 				484540DC2B540C0700A60118 /* GHSecondaryTitleLabel.swift in Sources */,
 				484540B82B4457CD00A60118 /* UIViewController+Extension.swift in Sources */,
-				484540AA2B40A35100A60118 /* FavoritesVC.swift in Sources */,
+				484540AA2B40A35100A60118 /* FavoritesListVC.swift in Sources */,
 				484540E22B5E89D800A60118 /* GHItemInfoVC.swift in Sources */,
 				484540DE2B542F3C00A60118 /* Constants.swift in Sources */,
 				484540AE2B40ACD100A60118 /* GHTextField.swift in Sources */,
@@ -351,6 +354,7 @@
 				484540E42B5E8C0E00A60118 /* GHRepoItemVC.swift in Sources */,
 				484540A82B40A32F00A60118 /* SearchVC.swift in Sources */,
 				484540E62B5E8D9900A60118 /* GHFollowerItemVC.swift in Sources */,
+				484540EF2B5FD89400A60118 /* FavoriteCell.swift in Sources */,
 				484540B02B41BADD00A60118 /* FollowerListVC.swift in Sources */,
 				484540C72B46C12900A60118 /* ErrorMessage.swift in Sources */,
 				484540E02B5E7A1500A60118 /* GHItemInfoView.swift in Sources */,
