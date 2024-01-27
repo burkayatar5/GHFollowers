@@ -40,6 +40,7 @@
 		484540EB2B5E941600A60118 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EA2B5E941600A60118 /* String+Extensions.swift */; };
 		484540ED2B5EEFF500A60118 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EC2B5EEFF500A60118 /* PersistenceManager.swift */; };
 		484540EF2B5FD89400A60118 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EE2B5FD89400A60118 /* FavoriteCell.swift */; };
+		48D6CB882B65525800109506 /* GHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB872B65525800109506 /* GHTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		484540EA2B5E941600A60118 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		484540EC2B5EEFF500A60118 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		484540EE2B5FD89400A60118 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		48D6CB872B65525800109506 /* GHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		484540BA2B445C2100A60118 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				48D6CB862B65523B00109506 /* TabbarControllers */,
 				484540D42B4C5DA300A60118 /* Views */,
 				484540D32B4C5D6700A60118 /* ViewControllers */,
 				484540D22B4C5D3E00A60118 /* Labels */,
@@ -270,6 +273,14 @@
 			path = ItemInfoVCs;
 			sourceTree = "<group>";
 		};
+		48D6CB862B65523B00109506 /* TabbarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				48D6CB872B65525800109506 /* GHTabBarController.swift */,
+			);
+			path = TabbarControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,6 +382,7 @@
 				484540D62B4C5DB800A60118 /* GHEmptyStateView.swift in Sources */,
 				484540952B408FAC00A60118 /* SceneDelegate.swift in Sources */,
 				484540D82B4DA4BF00A60118 /* UserInfoVC.swift in Sources */,
+				48D6CB882B65525800109506 /* GHTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
