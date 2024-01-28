@@ -87,6 +87,7 @@ class NetworkManager {
             do {
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                jsonDecoder.dateDecodingStrategy = .iso8601
                 let user = try jsonDecoder.decode(User.self, from: data)
                 completion(.success(user))
             } catch {
@@ -98,5 +99,35 @@ class NetworkManager {
         task.resume()
     }
     
-    
+    ///We do not handle image downloanding errors because if something goes wrong we have our placeholder image, it indicates there is a problem.
+    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+        let cacheKey = NSString(string: urlString)
+        ///our cache key is the urlString because it is unique for every follower.
+        ///if we have our image in cache use it directly and return.
+        if let image = cache.object(forKey: cacheKey) {
+            completion(image)
+            return
+        }
+        ///if we dont have the image in cache download it and put it in cache for later use.
+        guard let url = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
+            guard let self = self,
+                  error == nil,
+                  let response = response as? HTTPURLResponse, response.statusCode == 200,
+                  let data = data,
+                  let image = UIImage(data: data)
+            else {
+                completion(nil)
+                return
+            }
+        
+            self.cache.setObject(image, forKey: cacheKey)
+            completion(image)
+        }
+        task.resume()
+    }
 }

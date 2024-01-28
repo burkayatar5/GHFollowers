@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//Redundant but keep it for future.
 extension String {
     
     func convertToDate() -> Date? {

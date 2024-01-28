@@ -41,6 +41,8 @@
 		484540ED2B5EEFF500A60118 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EC2B5EEFF500A60118 /* PersistenceManager.swift */; };
 		484540EF2B5FD89400A60118 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484540EE2B5FD89400A60118 /* FavoriteCell.swift */; };
 		48D6CB882B65525800109506 /* GHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB872B65525800109506 /* GHTabBarController.swift */; };
+		48D6CB8A2B65616D00109506 /* GHAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB892B65616D00109506 /* GHAlertContainerView.swift */; };
+		48D6CB8C2B66FEC200109506 /* GHDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB8B2B66FEC200109506 /* GHDataLoadingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,8 @@
 		484540EC2B5EEFF500A60118 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		484540EE2B5FD89400A60118 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		48D6CB872B65525800109506 /* GHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTabBarController.swift; sourceTree = "<group>"; };
+		48D6CB892B65616D00109506 /* GHAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAlertContainerView.swift; sourceTree = "<group>"; };
+		48D6CB8B2B66FEC200109506 /* GHDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHDataLoadingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +254,7 @@
 				484540E72B5E8DE400A60118 /* ItemInfoVCs */,
 				484540B52B4319BA00A60118 /* GHAlertVC.swift */,
 				484540D92B53FA8500A60118 /* GHUserInfoHeaderVC.swift */,
+				48D6CB8B2B66FEC200109506 /* GHDataLoadingVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			children = (
 				484540D52B4C5DB800A60118 /* GHEmptyStateView.swift */,
 				484540DF2B5E7A1400A60118 /* GHItemInfoView.swift */,
+				48D6CB892B65616D00109506 /* GHAlertContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				484540E02B5E7A1500A60118 /* GHItemInfoView.swift in Sources */,
 				484540CA2B46CD8A00A60118 /* FollowerCollectionViewCell.swift in Sources */,
 				484540932B408FAC00A60118 /* AppDelegate.swift in Sources */,
+				48D6CB8C2B66FEC200109506 /* GHDataLoadingVC.swift in Sources */,
 				484540BF2B44B63700A60118 /* Follower.swift in Sources */,
 				484540B62B4319BA00A60118 /* GHAlertVC.swift in Sources */,
 				484540ED2B5EEFF500A60118 /* PersistenceManager.swift in Sources */,
@@ -380,6 +387,7 @@
 				484540EB2B5E941600A60118 /* String+Extensions.swift in Sources */,
 				484540B22B43106F00A60118 /* GHTitleLabel.swift in Sources */,
 				484540D62B4C5DB800A60118 /* GHEmptyStateView.swift in Sources */,
+				48D6CB8A2B65616D00109506 /* GHAlertContainerView.swift in Sources */,
 				484540952B408FAC00A60118 /* SceneDelegate.swift in Sources */,
 				484540D82B4DA4BF00A60118 /* UserInfoVC.swift in Sources */,
 				48D6CB882B65525800109506 /* GHTabBarController.swift in Sources */,
