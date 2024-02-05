@@ -43,6 +43,7 @@
 		48D6CB882B65525800109506 /* GHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB872B65525800109506 /* GHTabBarController.swift */; };
 		48D6CB8A2B65616D00109506 /* GHAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB892B65616D00109506 /* GHAlertContainerView.swift */; };
 		48D6CB8C2B66FEC200109506 /* GHDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB8B2B66FEC200109506 /* GHDataLoadingVC.swift */; };
+		48D6CB8E2B70D8F100109506 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CB8D2B70D8F000109506 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		48D6CB872B65525800109506 /* GHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTabBarController.swift; sourceTree = "<group>"; };
 		48D6CB892B65616D00109506 /* GHAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAlertContainerView.swift; sourceTree = "<group>"; };
 		48D6CB8B2B66FEC200109506 /* GHDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHDataLoadingVC.swift; sourceTree = "<group>"; };
+		48D6CB8D2B70D8F000109506 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				484540B72B4457CC00A60118 /* UIViewController+Extension.swift */,
 				484540E82B5E940C00A60118 /* Date+Extensions.swift */,
 				484540EA2B5E941600A60118 /* String+Extensions.swift */,
+				48D6CB8D2B70D8F000109506 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				484540B82B4457CD00A60118 /* UIViewController+Extension.swift in Sources */,
 				484540AA2B40A35100A60118 /* FavoritesListVC.swift in Sources */,
 				484540E22B5E89D800A60118 /* GHItemInfoVC.swift in Sources */,
+				48D6CB8E2B70D8F100109506 /* UIView+Extensions.swift in Sources */,
 				484540DE2B542F3C00A60118 /* Constants.swift in Sources */,
 				484540AE2B40ACD100A60118 /* GHTextField.swift in Sources */,
 				484540E92B5E940C00A60118 /* Date+Extensions.swift in Sources */,

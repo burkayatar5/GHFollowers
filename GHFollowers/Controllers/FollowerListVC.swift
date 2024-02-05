@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol FollowerListVCDelegate: AnyObject {
-    func didRequestFollowers(for username: String)
-}
-
 class FollowerListVC: GHDataLoadingVC {
     
     enum Section {
@@ -23,6 +19,7 @@ class FollowerListVC: GHDataLoadingVC {
     var page: Int = 1
     var hasMoreFollowers: Bool = true
     var isSearching = false
+    var isLoadingMoreFollowers: Bool = false
     
     var collectionView: UICollectionView?
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>?
@@ -75,7 +72,6 @@ class FollowerListVC: GHDataLoadingVC {
     private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         //searchController.obscuresBackgroundDuringPresentation = false -> to not obscure the collection view when typing.
         searchController.searchBar.placeholder = "Search for a username."
         navigationItem.searchController = searchController
@@ -84,36 +80,39 @@ class FollowerListVC: GHDataLoadingVC {
     
     private func getFollowers(username: String, page: Int) {
         showLoadingView()
+        isLoadingMoreFollowers = true
+        
         if let username = self.username {
             NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
                 guard let self = self else { return }
                 self.dismissLoadingView()
                 switch result {
-                    case .success(let followers):
+                case .success(let followers):
                     /*
                      We get 100 followers per page now.
                      If the follower count is less then 100 this means there are no more followers on the next page.
                      So we do not make any unneccesary network call.
                      TODO: - In an edge case like user has 400 followers we will make 1 more unncessary call. Try to fix it.
-                    */
+                     */
                     if followers.count < 100 { self.hasMoreFollowers = false }
-                        self.followers.append(contentsOf: followers)
+                    self.followers.append(contentsOf: followers)
                     
-                        if self.followers.isEmpty {
-                            let message = "This user does not have any followers. Go follow them 😀."
-                            DispatchQueue.main.async {
-                                self.showEmptyStateView(with: message, in: self.view)
-                            }
-                            return
+                    if self.followers.isEmpty {
+                        let message = "This user does not have any followers. Go follow them 😀."
+                        DispatchQueue.main.async {
+                            self.showEmptyStateView(with: message, in: self.view)
                         }
+                        return
+                    }
                     
-                        self.updateData(on: self.followers)
+                    self.updateData(on: self.followers)
                     
-                    case .failure(let error):
-                        self.presentGHAlertOnMainThread(title: "Bad Stuff Happened",
-                                                        message: error.rawValue,
-                                                        buttonTitle: "Ok")
+                case .failure(let error):
+                    self.presentGHAlertOnMainThread(title: "Bad Stuff Happened",
+                                                    message: error.rawValue,
+                                                    buttonTitle: "Ok")
                 }
+                self.isLoadingMoreFollowers = false
             }
         }
     }
@@ -181,7 +180,7 @@ extension FollowerListVC: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            guard hasMoreFollowers else { return }
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
             if let username = username {
                 getFollowers(username: username, page: page)
@@ -201,21 +200,21 @@ extension FollowerListVC: UICollectionViewDelegate {
     }
 }
 
-extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowerListVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { 
+            filteredFollowers.removeAll()
+            updateData(on: followers)
+            isSearching = false
+            return
+        }
         isSearching = true
         filteredFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
         updateData(on: filteredFollowers)
     }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: followers)
-    }
 }
 
-extension FollowerListVC: FollowerListVCDelegate {
+extension FollowerListVC: UserInfoVCDelegate {
     
     func didRequestFollowers(for username: String) {
         //Get followers for requested user.
@@ -224,7 +223,7 @@ extension FollowerListVC: FollowerListVCDelegate {
         page = 1
         followers.removeAll()
         filteredFollowers.removeAll()
-        collectionView?.setContentOffset(.zero, animated: true)
+        collectionView?.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         getFollowers(username: username, page: page)
     }
 }

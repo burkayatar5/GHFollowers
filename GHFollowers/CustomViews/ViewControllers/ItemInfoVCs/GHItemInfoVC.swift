@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class GHItemInfoVC: UIViewController {
 
     let stackView = UIStackView()
@@ -15,7 +16,6 @@ class GHItemInfoVC: UIViewController {
     let actionButton = GHButton()
     
     var user: User?
-    weak var delegate: UserInfoVCDelegate?
     
     init(user: User?) {
         super.init(nibName: nil, bundle: nil)
@@ -56,8 +56,7 @@ class GHItemInfoVC: UIViewController {
     }
     
     private func layoutUI() {
-        view.addSubview(stackView)
-        view.addSubview(actionButton)
+        view.addSubViews(stackView, actionButton)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
